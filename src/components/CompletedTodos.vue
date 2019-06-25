@@ -1,6 +1,7 @@
 <template>
-  <div id="completed-todos">
-    <h3 v-if="completed.length > 0">Completed({{ completed.length }})</h3>
+  <div id="completed-todos" class="flex-item">
+    <h2>COMPLETED:</h2>
+    <p v-if="completed.length === 0" class="italic">Nothing to show!</p>
     <ul class="list-group">
       <li
         class="list-group-item"
@@ -8,12 +9,8 @@
         v-bind:key="todo.id"
       >
         {{ todo.body }}
-        <button
-          type="button"
-          @click="remove(todo)"
-          class="btn btn-default btn-sm"
-        >
-          <span class="glyphicon glyphicon-remove-circle"></span> Remove
+        <button type="button" @click="remove(todo)" class="btn">
+          <i class="material-icons purple">delete</i>
         </button>
       </li>
     </ul>
